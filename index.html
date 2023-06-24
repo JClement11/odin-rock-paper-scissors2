@@ -2,7 +2,7 @@
 <script>
     function getComputerChoice() {
         let randomChoice = Math.floor(Math.random() * 3);
-        
+
         if (randomChoice === 0) {
             randomChoice = "ROCK";
         }
@@ -13,6 +13,37 @@
             randomChoice = "SCISSORS";
         }
         return randomChoice;
+    }
+
+    function playOneRound(playerSelection, computerSelection) {
+        if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
+            console.log("It's a tie! Pick again.");
+            return null;
+        }
+        else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toLowerCase() === "SCISSORS") {
+            console.log("Rock beats Scissors! You win!");
+            return true;
+        }
+        else if (playerSelection.toUpperCase() === "ROCK" && computerSelection.toLowerCase() === "PAPER") {
+            console.log("Paper beats Rock! You lose!");
+            return false;
+        }
+        else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toLowerCase() === "ROCK") {
+            console.log("Paper beats Rock! You win!");
+            return true;
+        }
+        else if (playerSelection.toUpperCase() === "PAPER" && computerSelection.toLowerCase() === "SCISSORS") {
+            console.log("Scissors beats Paper! You lose!");
+            return false;
+        }
+        else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toLowerCase() === "PAPER") {
+            console.log("Scissors beats Paper! You win!");
+            return true;
+        }
+        else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection.toLowerCase() === "ROCK") {
+            console.log("Rock beats Scissors! You lose!");
+            return false;
+        }
     }
     
 </script>
