@@ -46,4 +46,43 @@
         }
     }
 
+    function game() {
+        let playerSelection, computerSelection, result;
+        let playerWins = 0, computerWins = 0;
+
+        for (let round = 0; round < 5; round++) {
+            playerSelection = prompt("Do you choose rock, paper, or scissors?");
+            playerSelection = playerSelection.toUpperCase();
+            if (playerSelection === "ROCK" || playerSelection === "PAPER" || playerSelection === "SCISSORS") {
+            }
+            else {
+                playerSelection = prompt("Incorrect input! Please input rock, paper, or scissors.");
+                playerSelection = playerSelection.toUpperCase();
+            }
+            
+            computerSelection = getComputerChoice();
+            console.log(`Player selected: ${playerSelection}, Computer selected: ${computerSelection}`);
+            result = playRound(playerSelection, computerSelection);
+            
+            if (result === true) {
+                playerWins++;
+            }
+            else if (result === false) {
+                computerWins++;
+            }
+
+            console.log(`Player wins: ${playerWins}, Computer wins: ${computerWins}`);
+        }
+        
+        if (playerWins > computerWins) {
+            console.log("You won the game! Play again?");
+        }
+        else if (computerWins > playerWins) {
+            console.log("You lost the game! Try again?");
+        }
+        else {
+            console.log("It's a tie! Play again?");
+        }
+    }
+    game();
 </script>
